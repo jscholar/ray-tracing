@@ -30,6 +30,7 @@ bool hit_list::find_hit(const ray& ray, const double t_min, const double t_max, 
     hrec.object_hit = closest_hittable;
     // hrec.normal = (*closest_hittable).outward_normal_at(ray.at(hrec.t));
     vec3 normal = (*closest_hittable).outward_normal_at(ray.at(hrec.t));
+    hrec.normal = normal;
 
     // If normal and ray are same direction, flip the normal
     hrec.front_hit = true;

@@ -159,6 +159,8 @@
     <ClCompile Include="src\physics\vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="examples\example-image.ppm" />
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>

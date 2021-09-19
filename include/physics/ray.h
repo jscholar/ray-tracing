@@ -12,6 +12,5 @@ public:
 
     point3 origin() const;
     vec3 direction() const;
-
     point3 at(double t) const;
 };

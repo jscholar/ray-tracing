@@ -15,7 +15,7 @@ public:
 
 struct hit_record {
     double t = DBL_MAX;
-    // vec3 normal;
+    vec3 normal;
     bool front_hit;
     std::shared_ptr<hittable> object_hit;
 };

@@ -11,7 +11,7 @@
 #include "objects/hit_list.h"
 #include "objects/material.h"
 
-string file_name { "test-image.ppm" };
+string file_name { "example-image.ppm" };
 
 color ray_color(const ray& r, const hit_list& hittables_list, int bounce) {
 	hit_record hrec;
@@ -28,14 +28,15 @@ color ray_color(const ray& r, const hit_list& hittables_list, int bounce) {
 
 			// Get attenuation
 
-			cout << "Testing" << endl;
-			cout << hrec.t << endl;
-			cout << hrec.front_hit << endl;
-			cout << hrec.object_hit << endl;
-			cout << (*(hrec.object_hit)).p_material << endl;
-			// cout << *(hrec.object_hit->p_material) << endl;
-			cout << (*(hrec.object_hit)).p_material->get_reflectiveness() << endl;
-			cout << "Test complete" << endl;
+			//cout << "Testing" << endl;
+			//cout << hrec.t << endl;
+			//cout << hrec.front_hit << endl;
+			//cout << hrec.object_hit << endl;
+			scattering::standard_diffusion(hrec.normal);
+			//cout << (*(hrec.object_hit)).p_material << endl;
+			//cout << *(hrec.object_hit->p_material) << endl;
+			//cout << (*(hrec.object_hit)).p_material->get_reflectiveness() << endl;
+			//cout << "Test complete" << endl;
 			//(*((sphere*)hrec.object_hit._Ptr)).p_material
 			return 0.5 * ray_color(s, hittables_list, bounce + 1);
 			// return hrec.object_hit->p_material->get_reflectiveness() * ray_color(s, hittables_list, bounce + 1);
@@ -148,8 +149,4 @@ int main() {
 	}
 
 	std::cerr << "\nDone.\n";
-}
-
-string progress_bar() {
-	return "";
 }

@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />
+    <None Include=".gitignore" />
+    <None Include="examples\example-image.ppm" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\objects\material.h">

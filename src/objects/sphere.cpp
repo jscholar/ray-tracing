@@ -49,7 +49,7 @@ vec3 sphere::outward_normal_at(const point3& point) const {
 
 color sphere::get_color_at(const point3& point) const {
 	// something similar to outward_normal_at
-	// calcate the regular normal
+	// calculate the regular normal
 	vec3 normal = outward_normal_at(point);
 
 	// calculate a random point nearby (s)
