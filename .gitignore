@@ -1,2 +1,13 @@
-# Visual Studio workspace settings
+#### Visual Studio Settings ####
+
+## cache/options directory
 .vs
+
+## user-specific files
+*.user
+
+
+#### Build ####
+
+# Output
+build/
