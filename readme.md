@@ -6,3 +6,7 @@ We closely follow Peter Shirleys, [*Ray Tracing in One Weekend*](https://raytrac
 possible continuation into Shirley's next book(s) in the [series](https://raytracing.github.io/).
 
 ## Getting Started
+
+This project was created using *Microsoft Visual Studio 2019 - Community Edition*.
+
+Headers can be included from the `include/` directory. The visual studio settings are set to include the `include/` directory when resolve `#include`'s.
