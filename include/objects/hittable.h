@@ -1,6 +1,7 @@
 #pragma once
 
 #include "physics/ray.h"
+#include "physics/vec3.h"
 #include "objects/material.h"
 
 class hittable {

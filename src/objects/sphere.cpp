@@ -6,6 +6,7 @@
 #include "physics/math_utils.h"
 #include "physics/vec3.h"
 #include "physics/ray.h"
+#include "physics/scattering.h"
 
 sphere::sphere(const point3& center, double radius, const color& surfaceColor, const shared_ptr<material> p_material)
 	: center{ center }, radius{ radius }, surfaceColor{ surfaceColor }, p_material{ p_material }{};
@@ -54,5 +55,5 @@ color sphere::get_color_at(const point3& point) const {
 
 	// calculate a random point nearby (s)
 	// return the vector from point to s
-	return unit_vector(math_utils::random_vector_unit_sphere(normal));
+	return scattering::standard_diffusion(normal);
 }
