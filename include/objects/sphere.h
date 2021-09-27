@@ -43,4 +43,3 @@ public:
 
 	color get_color_at(const point3& point) const;
 };
-
