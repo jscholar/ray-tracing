@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include <optional>
 #include "physics/vec3.h"
 #include "physics/ray.h"
 #include "objects/hittable.h"
@@ -29,15 +30,7 @@ public:
 		const shared_ptr<material> p_material
 	);
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="ray"></param>
-	/// <param name="t_min"></param>
-	/// <param name="t_max"></param>
-	/// <returns>The t value of the ray for the point of contact with the sphere.
-	/// If the sphere does not block, DBL_MAX is returned</returns>
-	double blocks(const ray& ray, double t_min, double t_max) const;
+	std::optional<hit_record> find_hit(const ray& ray, double t_min, double t_max) const;
 
 	vec3 outward_normal_at(const point3& point) const;
 

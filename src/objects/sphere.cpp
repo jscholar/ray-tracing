@@ -1,5 +1,6 @@
 ﻿#include "objects/sphere.h"
 
+#include <optional>
 #include "math.h"
 #include "objects/hittable.h"
 #include "objects/material.h"
@@ -11,7 +12,7 @@
 sphere::sphere(const point3& center, double radius, const color& surfaceColor, const shared_ptr<material> p_material)
 	: center{ center }, radius{ radius }, surfaceColor{ surfaceColor }, p_material{ p_material }{};
 
-double sphere::blocks(const ray& ray, double t_min, double t_max) const {
+std::optional<hit_record> sphere::find_hit(const ray& ray, double t_min, double t_max) const {
 	point3 A = ray.orig;
 	vec3 b = ray.dir;
 	point3 C = center;
@@ -28,7 +29,7 @@ double sphere::blocks(const ray& ray, double t_min, double t_max) const {
 	// Check direction of the ray
 	double discriminant = (q_b * q_b) - (4 * q_a * q_c);
 	if (discriminant < 0) {
-		return DBL_MAX;
+		return std::nullopt;
 	}
 
 	double root = (-q_b - sqrt(discriminant)) / (2 * q_a);
@@ -37,11 +38,19 @@ double sphere::blocks(const ray& ray, double t_min, double t_max) const {
 	if (root > t_max || root < t_min) {
 		root = (-q_b + sqrt(discriminant)) / (2 * q_a);
 		if (root > t_max || root < t_min) {
-			return DBL_MAX;
+			return std::nullopt;
 		}
 	}
 
-	return root;
+	hit_record hrec;
+	hrec.t = root;
+	hrec.normal = outward_normal_at(ray.at(hrec.t));
+	if (dot(ray.dir, hrec.normal) > 0) {
+		hrec.normal *= -1;
+	}
+	hrec.object_hit = shared_from_this();
+
+	return hrec;
 }
 
 vec3 sphere::outward_normal_at(const point3& point) const {
