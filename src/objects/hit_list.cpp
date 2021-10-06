@@ -1,18 +1,17 @@
 #include "objects/hit_list.h"
 
+#include "physics/vec3.h"
+#include "objects/hittable.h"
+#include "objects/material.h"
+
 #include <vector>
 #include <optional>
 #include <memory>
 
-#include "physics/vec3.h"
-#include "objects/material.h"
-#include "objects/hittable.h"
-#include "objects/sphere.h"
-
 hit_list::hit_list() {};
-hit_list::hit_list(vector<shared_ptr<hittable>> input) : hittables{ input } {}
+hit_list::hit_list(std::vector<std::shared_ptr<hittable>> input) : hittables{ input } {}
 
-shared_ptr<material> mat_stone = make_shared<stone>(stone());
+std::shared_ptr<material> mat_stone = std::make_shared<stone>(stone());
 
 std::optional<hit_record> hit_list::find_hit(const ray& ray, const double t_min, const double t_max) const {
     std::optional<hit_record> closest_hrec;

@@ -1,15 +1,15 @@
 ﻿#include "objects/sphere.h"
 
-#include <optional>
-#include "math.h"
-#include "objects/hittable.h"
-#include "objects/material.h"
-#include "physics/math_utils.h"
 #include "physics/vec3.h"
 #include "physics/ray.h"
 #include "physics/scattering.h"
+#include "objects/material.h"
+#include "objects/hittable.h"
 
-sphere::sphere(const point3& center, double radius, const color& surfaceColor, const shared_ptr<material> p_material)
+#include <optional>
+#include <math.h>
+
+sphere::sphere(const point3& center, double radius, const color& surfaceColor, const std::shared_ptr<material> p_material)
 	: center{ center }, radius{ radius }, surfaceColor{ surfaceColor }, p_material{ p_material }{};
 
 std::optional<hit_record> sphere::find_hit(const ray& ray, double t_min, double t_max) const {

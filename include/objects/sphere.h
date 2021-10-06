@@ -1,17 +1,17 @@
 ﻿#pragma once
 
-#include <optional>
+#include "objects/hittable_object.h"
 #include "physics/vec3.h"
-#include "physics/ray.h"
-#include "objects/hittable.h"
-#include "objects/material.h"
 
-using namespace std;
+#include <optional>
+
+struct hit_record;
+class material;
 
 class sphere : public hittable_object
 {
 public:
-	shared_ptr<material> p_material;
+	std::shared_ptr<material> p_material;
 	point3 center;
 	color surfaceColor;
 	double radius;
@@ -20,7 +20,7 @@ public:
 		const point3& center,
 		double radius,
 		const color& surfaceColor,
-		const shared_ptr<material> p_material
+		const std::shared_ptr<material> p_material
 	);
 
 	std::optional<hit_record> find_hit(const ray& ray, double t_min, double t_max) const;
