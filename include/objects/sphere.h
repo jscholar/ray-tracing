@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class sphere : public hittable
+class sphere : public hittable_object
 {
 public:
 	shared_ptr<material> p_material;
@@ -16,13 +16,6 @@ public:
 	color surfaceColor;
 	double radius;
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="center"></param>
-	/// <param name="radius"></param>
-	/// <param name="surfaceColor"></param>
-	/// <returns></returns>
 	sphere(
 		const point3& center,
 		double radius,

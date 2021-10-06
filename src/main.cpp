@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <optional>
 
 #include "io/color.h"
 #include "physics/ray.h"
@@ -14,16 +15,16 @@
 string file_name { "example-image.ppm" };
 
 color ray_color(const ray& r, const hit_list& hittables_list, int bounce) {
-	hit_record hrec;
-
 	if (bounce <= 3) {
-		bool did_hit = hittables_list.find_hit(r, 0.001, 100.0, hrec);
+		std::optional<hit_record> possible_hit = hittables_list.find_hit(r, 0.001, 100.0);
 
-		if (did_hit) {
+		if (possible_hit.has_value()) {
+			hit_record hrec = possible_hit.value();
+
 			point3 p = r.at(hrec.t);
 
 			// Get scatter 
-			ray s = ray(p, hrec.object_hit->get_color_at(p));
+			ray s = ray(p, scattering::standard_diffusion(hrec.normal));
 			// ray s = ray(p, hrec.object_hit->*p_material->get_bounce_direction(hrec.object_hit->outward_normal_at(p)));
 
 			// Get attenuation

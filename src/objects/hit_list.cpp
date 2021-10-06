@@ -1,6 +1,9 @@
 #include "objects/hit_list.h"
 
+#include <vector>
 #include <optional>
+#include <memory>
+
 #include "physics/vec3.h"
 #include "objects/material.h"
 #include "objects/hittable.h"
@@ -11,7 +14,7 @@ hit_list::hit_list(vector<shared_ptr<hittable>> input) : hittables{ input } {}
 
 shared_ptr<material> mat_stone = make_shared<stone>(stone());
 
-bool hit_list::find_hit(const ray& ray, const double t_min, const double t_max, hit_record& hrec) const {
+std::optional<hit_record> hit_list::find_hit(const ray& ray, const double t_min, const double t_max) const {
     std::optional<hit_record> closest_hrec;
 
     // iterate over hittables
@@ -27,6 +30,5 @@ bool hit_list::find_hit(const ray& ray, const double t_min, const double t_max, 
         }
     }
 
-    hrec = closest_hrec.value_or(hrec);
-    return closest_hrec.has_value();
+    return closest_hrec;
 }

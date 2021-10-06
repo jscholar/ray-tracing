@@ -171,6 +171,8 @@
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\objects\hittable_object.h" />
+    <ClInclude Include="include\objects\hit_record.h" />
     <ClInclude Include="include\objects\sphere.h" />
     <ClInclude Include="include\objects\material.h" />
     <ClInclude Include="include\io\color.h" />
