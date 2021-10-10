@@ -1,13 +1,14 @@
 #include "io/color.h"
 
-#include <iostream>
-
 #include "physics/vec3.h"
+
+#include <iostream>
+#include <algorithm>
 
 
 void write_color(std::ostream& out, color pixel_color) {
 	// Write the translated [0,255] value of each color component.
-	out << static_cast<int>(255.999 * sqrt(pixel_color.x())) << ' '
-		<< static_cast<int>(255.999 * sqrt(pixel_color.y())) << ' '
-		<< static_cast<int>(255.999 * sqrt(pixel_color.z())) << '\n';
+	out << static_cast<int>(255.999 * std::clamp(sqrt(pixel_color.x()), 0.0, 1.0)) << ' '
+		<< static_cast<int>(255.999 * std::clamp(sqrt(pixel_color.y()), 0.0, 1.0)) << ' '
+		<< static_cast<int>(255.999 * std::clamp(sqrt(pixel_color.z()), 0.0, 1.0)) << '\n';
 }
