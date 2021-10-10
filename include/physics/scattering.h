@@ -16,5 +16,7 @@ namespace scattering
 	*/
 	vec3 lambertian_diffusion();
 
+	vec3 true_reflection(vec3 incoming, vec3 normal);
+
 	vec3 standard_diffusion(vec3 normal);
 };

@@ -11,6 +11,13 @@ vec3 scattering::lambertian_diffusion() {
     return math_utils::random_vector();
 }
 
+vec3 scattering::true_reflection(vec3 incoming, vec3 normal) {
+    double s = dot(incoming, normal);
+    vec3 normal_component = s * normal;
+    vec3 outgoing = incoming - (2 * normal_component);
+    return outgoing;
+}
+
 vec3 scattering::standard_diffusion(vec3 normal) {
     vec3 random_vector = pseudo_lambertian_diffusion();
 
