@@ -154,8 +154,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\objects\hittable_object.cpp" />
     <ClCompile Include="src\objects\hit_list.cpp" />
     <ClCompile Include="src\physics\ray.cpp" />
+    <ClCompile Include="src\physics\ray_tracer.cpp" />
     <ClCompile Include="src\physics\scattering.cpp" />
     <ClCompile Include="src\objects\sphere.cpp" />
     <ClCompile Include="src\objects\material.cpp" />
@@ -181,6 +183,7 @@
     <ClInclude Include="include\objects\hit_list.h" />
     <ClInclude Include="include\physics\math_utils.h" />
     <ClInclude Include="include\physics\ray.h" />
+    <ClInclude Include="include\physics\ray_tracer.h" />
     <ClInclude Include="include\physics\vec3.h" />
     <ClInclude Include="include\physics\scattering.h" />
   </ItemGroup>

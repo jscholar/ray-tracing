@@ -5,12 +5,13 @@
 #include "physics/scattering.h"
 #include "objects/material.h"
 #include "objects/hittable.h"
+#include "objects/hittable_object.h"
 
 #include <optional>
 #include <math.h>
 
-sphere::sphere(const point3& center, double radius, const color& surfaceColor, const std::shared_ptr<material> p_material)
-	: center{ center }, radius{ radius }, surfaceColor{ surfaceColor }, p_material{ p_material }{};
+sphere::sphere(const point3& center, double radius, const color& surface_color, const std::shared_ptr<material> p_material)
+	: center{ center }, radius{ radius }, surfaceColor{ surface_color }, hittable_object{ p_material } {};
 
 std::optional<hit_record> sphere::find_hit(const ray& ray, double t_min, double t_max) const {
 	point3 A = ray.orig;
