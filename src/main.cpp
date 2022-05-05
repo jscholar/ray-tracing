@@ -41,56 +41,23 @@ int main() {
 
 	// Materials
 	auto mat_stone = std::make_shared<stone>();
-	auto mat_fluorescent = std::make_shared<fluorescent>();
+	auto mat_grass = std::make_shared<grass>();
+	auto mat_ocean = std::make_shared<ocean>();
+	auto mat_fluorescent = std::make_shared<fluorescent_white>();
+	auto mat_gold = std::make_shared<gold>();
 	auto mat_metal = std::make_shared<metal>();
 
-	// Spheres
-	// vectorstd::shared_ptr<hittable>> sphere_vec = {};
-
-	// double radius = 0.05;
-
-	// for (double x = -1.0; x <= 1.0; x += 0.5) {
-	// 	for (double y = -1.0; y <= 1.0; y += 0.5) {
-	// 		for (double z = -3; z >= -8; z -= 1) {
-	// 			// cout << "x: " << x << endl;
-	// 			// cout << "y: " << y << endl;
-	// 			// cout << "z: " << z << endl;
-	// 			sphere s = sphere(point3(x, y, z), radius, color(0.0, 1.0, 0.0));
-	// 			// cout << s.center << endl;
-	// 			sphere_vec.push_back(make_shared<sphere>(s));
-	// 			// cout << sphere_vec[0]->center << endl;
-	// 			// cout << sphere_vec.size() << endl;
-	// 		}
-	// 	}
-	// }
-
-
-	// double a = 0;
-	// double b = 0.5;
-	// double c = -5;
-	// double radius2 = 1.0;
-
-	// sphere_vec.push_back(&sphere(point3(a, b, c), radius2, color(0.0, 1.0, 0.0)));
-	// sphere_vec.push_back(&sphere(point3(0.25, 0.5, -5), 1.0, color(0.0, 1.0, 0.0)));
-
-	// cout << sphere_vec[0]->center << endl;
-	// cout << sphere_vec[1]->center << endl;
-	// cout << sphere_vec[2]->center << endl;
-	// cout << sphere_vec[3]->center << endl;
-	// cout << sphere_vec[4]->center << endl;
-
-	//std::shared_ptr<hittable> sphere1 = make_shared<sphere>(sphere(point3(0, 0, -7.5), 0.5, color(0.0, 1.0, 0.0)));
-	std::shared_ptr<sphere> sphere2 = std::make_shared<sphere>(sphere(point3(0, 1, -8.5), 1.5, color(0.0, 1.0, 0.0), mat_metal));
+	std::shared_ptr<sphere> sphere2 = std::make_shared<sphere>(sphere(point3(0, 1, -8.5), 1.5, color(0.0, 1.0, 0.0), mat_gold));
 	std::shared_ptr<sphere> sphere3 = std::make_shared<sphere>(sphere(point3(-2.5, 0.5, -10), 1.0, color(0.0, 1.0, 0.0), mat_metal));
 	std::shared_ptr<sphere> sphere5 = std::make_shared<sphere>(sphere(point3(0.25, -0.25, -6.5), 0.25, color(0.0, 1.0, 0.0), mat_metal));
 
-	std::shared_ptr<sphere> hill1 = std::make_shared<sphere>(sphere(point3(1.5, -1.25, -4.5), 1.3, color(0.0, 1.0, 0.0), mat_stone));
+	std::shared_ptr<sphere> hill1 = std::make_shared<sphere>(sphere(point3(3.5, -1.25, -4.5), 1.3, color(0.0, 1.0, 0.0), mat_grass));
 
 	std::shared_ptr<sphere> mountain1 = std::make_shared<sphere>(sphere(point3(-25, -15, -30), 30, color(0.0, 1.0, 0.0), mat_stone));
 
 	std::shared_ptr<sphere> moon = std::make_shared<sphere>(sphere(point3(25, 15, -75), 15.0, color(0.0, 1.0, 0.0), mat_fluorescent));
 	std::shared_ptr<sphere> moon2 = std::make_shared<sphere>(sphere(point3(55, 23, -75), 5.0, color(0.0, 1.0, 0.0), mat_metal));
-	std::shared_ptr<sphere> earth = std::make_shared<sphere>(sphere(point3(0, -200.5, -1), 200.0, color(0.0, 1.0, 0.0), mat_stone));
+	std::shared_ptr<sphere> earth = std::make_shared<sphere>(sphere(point3(0, -200.5, -1), 200.0, color(0.0, 1.0, 0.0), mat_ocean));
 
 	std::vector<std::shared_ptr<hittable>> sphere_vec = { sphere2, sphere3, sphere5, hill1, mountain1, earth, moon, moon2 };
 	hit_list spheres = hit_list(sphere_vec);
