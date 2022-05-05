@@ -23,6 +23,8 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{5717876f-01d6-4c0f-b1bb-464cb8e57bd8}</ProjectGuid>
     <RootNamespace>RayTracing</RootNamespace>
+    <CudaToolkitCustomDir>
+    </CudaToolkitCustomDir>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -54,6 +56,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.5.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -97,12 +100,19 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\JinRC\Projects\ray-tracing_2.0\Ray Tracing\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>
+      </Include>
+    </CudaCompile>
+    <CudaLink />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -113,14 +123,21 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\JinRC\Projects\ray-tracing_2.0\Ray Tracing\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>
+      </Include>
+    </CudaCompile>
+    <CudaLink />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -128,13 +145,23 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JinRC\Projects\ray-tracing_2.0\Ray Tracing\include\</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>
+      </Include>
+      <AdditionalOptions>--std c++17 %(AdditionalOptions)</AdditionalOptions>
+      <GenerateRelocatableDeviceCode>true</GenerateRelocatableDeviceCode>
+      <Runtime>InheritFromHost</Runtime>
+    </CudaCompile>
+    <CudaLink />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -144,28 +171,54 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\JinRC\Projects\ray-tracing_2.0\Ray Tracing\include\</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir);$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>
+      </Include>
+    </CudaCompile>
+    <CudaLink />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\objects\hittable_object.cpp" />
-    <ClCompile Include="src\objects\hit_list.cpp" />
-    <ClCompile Include="src\physics\ray.cpp" />
-    <ClCompile Include="src\physics\ray_tracer.cpp" />
-    <ClCompile Include="src\physics\scattering.cpp" />
-    <ClCompile Include="src\objects\sphere.cpp" />
-    <ClCompile Include="src\objects\material.cpp" />
+    <CudaCompile Include="src\objects\hittable_object.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\hit_list.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\ray.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\ray_tracer.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\scattering.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\sphere.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\material.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
     <ClCompile Include="src\io\color.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\objects\hittable.cpp" />
-    <ClCompile Include="src\physics\math_utils.cpp" />
-    <ClCompile Include="src\physics\vec3.cpp" />
+    <CudaCompile Include="src\main.cu" />
+    <CudaCompile Include="src\objects\hittable.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\math_utils.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\vec3.cu" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -173,21 +226,24 @@
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\objects\hittable_object.h" />
-    <ClInclude Include="include\objects\hit_record.h" />
-    <ClInclude Include="include\objects\sphere.h" />
-    <ClInclude Include="include\objects\material.h" />
+    <ClInclude Include="include\objects\hittable_object.cuh" />
+    <ClInclude Include="include\objects\hit_record.cuh" />
+    <ClInclude Include="include\objects\sphere.cuh" />
+    <ClInclude Include="include\objects\material.cuh" />
     <ClInclude Include="include\io\color.h" />
+    <ClInclude Include="include\objects\hittable.cuh" />
+    <ClInclude Include="include\objects\hit_list.cuh" />
     <ClInclude Include="include\physics\CONSTANTS.h" />
-    <ClInclude Include="include\objects\hittable.h" />
-    <ClInclude Include="include\objects\hit_list.h" />
-    <ClInclude Include="include\physics\math_utils.h" />
-    <ClInclude Include="include\physics\ray.h" />
-    <ClInclude Include="include\physics\ray_tracer.h" />
-    <ClInclude Include="include\physics\vec3.h" />
-    <ClInclude Include="include\physics\scattering.h" />
+    <ClInclude Include="include\physics\math_utils.cuh" />
+    <ClInclude Include="include\physics\ray.cuh" />
+    <ClInclude Include="include\physics\ray_tracer.cuh" />
+    <ClInclude Include="include\physics\vec3.cuh">
+      <FileType>CppHeader</FileType>
+    </ClInclude>
+    <ClInclude Include="include\physics\scattering.cuh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.5.targets" />
   </ImportGroup>
 </Project>

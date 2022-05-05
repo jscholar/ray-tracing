@@ -1,6 +1,6 @@
 #pragma once
 
-#include "physics/vec3.h"
+#include "physics/vec3.cuh"
 
 class ray;
 class hittable;

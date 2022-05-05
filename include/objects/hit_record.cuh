@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "physics/vec3.h"
+#include "physics/vec3.cuh"
 
 class hittable_object;
 

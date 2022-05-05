@@ -1,14 +1,15 @@
-#include "physics/ray_tracer.h"
+#include "physics/ray_tracer.cuh"
 
-#include "physics/vec3.h"
-#include "physics/ray.h"
-#include "physics/scattering.h"
-#include "objects/hittable.h"
-#include "objects/hittable_object.h"
-#include "objects/material.h"
+#include "physics/vec3.cuh"
+#include "physics/ray.cuh"
+#include "physics/scattering.cuh"
+#include "objects/hittable.cuh"
+#include "objects/hittable_object.cuh"
+#include "objects/material.cuh"
 
 #include <memory>
 #include <algorithm>
+#include <cuda_runtime.h>
 
 color ray_tracer::ray_color(const ray& r, const hittable& hittable_entity, int bounce) {
 	if (bounce <= 5) {
@@ -34,7 +35,7 @@ color ray_tracer::ray_color(const ray& r, const hittable& hittable_entity, int b
 			new_color[0] = std::clamp(new_color[0], 0.0, 1.0);
 			new_color[1] = std::clamp(new_color[1], 0.0, 1.0);
 			new_color[2] = std::clamp(new_color[2], 0.0, 1.0);
-
+			
 			return attenuating_color * new_color;
 			// return hrec.object_hit->p_material->get_reflectiveness() * ray_color(s, hittable_entity, bounce + 1);
 		}

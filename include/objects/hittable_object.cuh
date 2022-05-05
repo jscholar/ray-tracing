@@ -2,8 +2,8 @@
 
 #include <memory>
 
-#include "physics/vec3.h"
-#include "objects/hittable.h"
+#include "physics/vec3.cuh"
+#include "objects/hittable.cuh"
 
 class hittable_object;
 class material;

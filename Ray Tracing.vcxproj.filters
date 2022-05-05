@@ -15,40 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\io\color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\hittable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\material.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\physics\scattering.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\physics\math_utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\physics\ray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\physics\vec3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\hit_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\physics\ray_tracer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\objects\hittable_object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,44 +25,77 @@
     <None Include="examples\example-image.ppm" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\objects\material.h">
+    <ClInclude Include="include\objects\material.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\hit_list.h">
+    <ClInclude Include="include\objects\hit_list.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\hittable.h">
+    <ClInclude Include="include\objects\hittable.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\sphere.h">
+    <ClInclude Include="include\objects\sphere.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\io\color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics\ray.h">
+    <ClInclude Include="include\physics\ray.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics\vec3.h">
+    <ClInclude Include="include\physics\scattering.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics\scattering.h">
+    <ClInclude Include="include\physics\math_utils.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\hittable_object.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\hit_record.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\physics\ray_tracer.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\physics\vec3.cuh">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\physics\CONSTANTS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics\math_utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\hittable_object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\hit_record.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\physics\ray_tracer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\main.cu" />
+    <CudaCompile Include="src\physics\vec3.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\scattering.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\math_utils.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\ray.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\physics\ray_tracer.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\sphere.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\hit_list.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\hittable.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\hittable_object.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\objects\material.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

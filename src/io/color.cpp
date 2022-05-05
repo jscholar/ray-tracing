@@ -1,6 +1,6 @@
 #include "io/color.h"
 
-#include "physics/vec3.h"
+#include "physics/vec3.cuh"
 
 #include <iostream>
 #include <algorithm>

@@ -12,3 +12,7 @@ possible continuation into Shirley's next book(s) in the [series](https://raytra
 This project was created using *Microsoft Visual Studio 2019 - Community Edition*.
 
 Headers can be included from the `include/` directory. The visual studio settings are set to include the `include/` directory when resolve `#include`'s.
+
+### CUDA
+
+A CUDA toolkit installation is required. 
