@@ -18,5 +18,4 @@ public:
 	hittable_object(std::shared_ptr<material> p_material);
 
 	virtual vec3 outward_normal_at(const point3& point) const = 0;
-	virtual color get_color_at(const point3& point) const = 0;
 };

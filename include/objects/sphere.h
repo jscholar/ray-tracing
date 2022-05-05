@@ -26,6 +26,4 @@ public:
 	std::optional<hit_record> find_hit(const ray& ray, double t_min, double t_max) const;
 
 	vec3 outward_normal_at(const point3& point) const;
-
-	color get_color_at(const point3& point) const;
 };
